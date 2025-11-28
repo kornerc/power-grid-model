@@ -95,9 +95,9 @@ template <class MainModel> class JobAdapter : public JobInterface {
                                       model_reference_.get().meta_data(),
                                   },
                                   true, logger);
-        } catch (SparseMatrixError const&) { // NOLINT(bugprone-empty-catch) // NOSONAR
+        } catch (SparseMatrixError const&) { // NOLINT(bugprone-empty-catch)
             // missing entries are provided in the update data
-        } catch (NotObservableError const&) { // NOLINT(bugprone-empty-catch) // NOSONAR
+        } catch (NotObservableError const&) { // NOLINT(bugprone-empty-catch)
             // missing entries are provided in the update data
         }
     }

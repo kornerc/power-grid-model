@@ -20,7 +20,7 @@ static_assert(include_all());
 static_assert(include_all(1));
 
 // NOLINTNEXTLINE(performance-move-const-arg,hicpp-move-const-arg) // to test that rvalues work
-static_assert(include_all(Idx{2}, std::move(Idx{3}))); // NOSONAR // to test that rvalues work
+static_assert(include_all(Idx{2}, std::move(Idx{3}))); // to test that rvalues work
 
 // periodic mapping
 static_assert(map_to_cyclic_range(5, 3) == 2);

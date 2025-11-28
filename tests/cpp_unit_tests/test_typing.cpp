@@ -13,9 +13,7 @@ namespace {
 using namespace power_grid_model;
 
 // Force static_cast without any Sonar Cloud warnings for redundant casts
-template <typename T> constexpr auto force_static_cast(auto value) {
-    return static_cast<T>(value); // NOSONAR
-}
+template <typename T> constexpr auto force_static_cast(auto value) { return static_cast<T>(value); }
 
 template <typename T, typename U> void check_narrow_cast() {
     static_assert(std::same_as<decltype(narrow_cast<T>(U{})), T>);

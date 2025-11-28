@@ -19,7 +19,7 @@ class JobInterface {
     // the multiple  NOSONARs are used to avoid the complaints about the unnamed concepts
     template <typename Self, typename ResultDataset>
     void calculate(this Self&& self, ResultDataset const& result_data, Idx pos, Logger& logger)
-        requires requires { // NOSONAR
+        requires requires {
             { std::forward<Self>(self).calculate_impl(result_data, pos, logger) } -> std::same_as<void>;
         }
     {
@@ -33,7 +33,7 @@ class JobInterface {
 
     template <typename Self>
     void cache_calculate(this Self&& self, Logger& logger)
-        requires requires { // NOSONAR
+        requires requires {
             { std::forward<Self>(self).cache_calculate_impl(logger) } -> std::same_as<void>;
         }
     {
@@ -42,7 +42,7 @@ class JobInterface {
 
     template <typename Self, typename UpdateDataset>
     void prepare_job_dispatch(this Self&& self, UpdateDataset const& update_data)
-        requires requires { // NOSONAR
+        requires requires {
             { std::forward<Self>(self).prepare_job_dispatch_impl(update_data) } -> std::same_as<void>;
         }
     {
@@ -51,7 +51,7 @@ class JobInterface {
 
     template <typename Self, typename UpdateDataset>
     void setup(this Self&& self, UpdateDataset const& update_data, Idx scenario_idx)
-        requires requires { // NOSONAR
+        requires requires {
             { std::forward<Self>(self).setup_impl(update_data, scenario_idx) } -> std::same_as<void>;
         }
     {
@@ -60,7 +60,7 @@ class JobInterface {
 
     template <typename Self>
     void winddown(this Self&& self)
-        requires requires { // NOSONAR
+        requires requires {
             { std::forward<Self>(self).winddown_impl() } -> std::same_as<void>;
         }
     {

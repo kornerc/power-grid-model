@@ -174,11 +174,9 @@ inline void get_component_sequence_impl(ComponentContainer const& components, El
         });
     } else {
         assert(std::ranges::ssize(elements) <= n_comp_elements);
-        std::ranges::transform(
-            std::forward<Elements>(elements), destination,
-            [group = get_component_group_idx<Component>(components), index = 0](auto const& /*update*/) mutable {
-                return Idx2D{group, index++}; // NOSONAR
-            });
+        std::ranges::transform(std::forward<Elements>(elements), destination,
+                               [group = get_component_group_idx<Component>(components),
+                                index = 0](auto const& /*update*/) mutable { return Idx2D{group, index++}; });
     }
 }
 

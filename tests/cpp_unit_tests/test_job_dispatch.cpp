@@ -411,7 +411,7 @@ TEST_CASE("Test job dispatch logic") {
             Idx const scenario_idx = 7; // arbitrary index
             try {
                 throw SomeTestException{expected_message};
-            } catch (...) { // NOSONAR // the handler should work with arbitrary exception types
+            } catch (...) { // the handler should work with arbitrary exception types
                 handler(scenario_idx);
             }
             CHECK(messages[scenario_idx] == expected_message);
@@ -420,7 +420,7 @@ TEST_CASE("Test job dispatch logic") {
             Idx const scenario_idx = 3; // arbitrary index
             try {
                 throw 4;    // arbitrary non-exception type  // NOLINT(hicpp-exception-baseclass)
-            } catch (...) { // NOSONAR // the handler should work with arbitrary exception types
+            } catch (...) { // the handler should work with arbitrary exception types
                 handler(scenario_idx);
             }
             CHECK(messages[scenario_idx] == "unknown exception");

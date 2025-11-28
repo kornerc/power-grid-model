@@ -1106,7 +1106,7 @@ class TapPositionOptimizerImpl<std::tuple<TransformerTypes...>, StateCalculator,
         bool tap_changed = false;
         auto& current_bs = binary_search_[options.idx_bs.group][options.idx_bs.pos];
 
-        auto const adjust_transformer_ = [&](transformer_c auto const& transformer) { // NOSONAR
+        auto const adjust_transformer_ = [&](transformer_c auto const& transformer) {
             using TransformerType = std::remove_cvref_t<decltype(transformer)>;
 
             if (!is_regulated_transformer_connected<TransformerType>(regulator, state)) {

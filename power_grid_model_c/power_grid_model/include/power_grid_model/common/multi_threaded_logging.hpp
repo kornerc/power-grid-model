@@ -40,7 +40,7 @@ class MultiThreadedLoggerImpl : public MultiThreadedLogger {
         ~ThreadLogger() noexcept override {
             try {
                 sync();
-            } catch (...) { // NOLINT(bugprone-empty-catch) // NOSONAR
+            } catch (...) { // NOLINT(bugprone-empty-catch)
                 // we can't sync so we need to ignore the error
             }
         }

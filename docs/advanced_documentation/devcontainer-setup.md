@@ -4,10 +4,18 @@ SPDX-FileCopyrightText: Contributors to the Power Grid Model project <powergridm
 SPDX-License-Identifier: MPL-2.0
 -->
 
-# Container Setup Guide
+# Development Container Setup Guide
 
-This document explains how you can utilize the container setup provided by us, to contribute to power-grid-model only on
-the Python side.
+This document explains how you can use our development container (dev container) setup to contribute to the _Python_
+side of ``power-grid-model``.
+
+```{note}
+A [development container](https://containers.dev/) is a pre-configured
+[container](https://en.wikipedia.org/wiki/Containerization_(computing)).
+It includes all necessary dependencies for an immediate development start.
+Most modern IDEs support dev containers natively.
+This allows you to use your preferred editor and personal extensions directly inside the isolated environment.
+```
 
 ## Setup Requirements
 

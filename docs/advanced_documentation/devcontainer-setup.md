@@ -7,7 +7,7 @@ SPDX-License-Identifier: MPL-2.0
 # Development Container Setup Guide
 
 This document explains how you can use our development container (dev container) setup to contribute to the _Python_
-side of ``power-grid-model``.
+side of `power-grid-model`.
 
 ```{note}
 A [development container](https://containers.dev/) is a pre-configured
@@ -17,80 +17,85 @@ Most modern IDEs support dev containers natively.
 This allows you to use your preferred editor and personal extensions directly inside the isolated environment.
 ```
 
-## Setup Requirements
+## Prerequisites
 
-To begin using the container, you have several options, e.g.:
+To start developing in the dev container, you must clone the repository, install a container engine, and _(optionally)_
+configure an IDE or editor that supports remote container connections.
 
-* Podman + DevPod (both are free, open-source tools)
-* Docker + DevPod (NOTE: Docker Desktop requires a subscription that is not free for commercial usage)
-
-* Podman (<https://podman.io/>) - a container engine that lets developers build, run, and manage containers and pods
-without needing a background service.
-* DevPod (<https://devpod.sh/>) - a tool that instantiates reproducible, disposable development environments allowing
-developers to code inside the containers with their usual editors.
-* Docker (<https://www.docker.com/>) - a popular container platform that uses a background service (daemon) to build,
-run, and manage containerized applications. (NOTE: Docker Desktop requires a subscription that is not free for
-commercial usage).
-
-## The Recommended Setup Process
-
-### Cloning The Repository
-
-Firstly, setup the repository by cloning it into the desired destination.
+First, **clone the repository:**
 
 ```shell
-git clone <https>
+git clone https://github.com/PowerGridModel/power-grid-model.git
 ```
 
-Make sure that you are on the right branch.
+For the container engine and the IDE/editor you have several options:
 
-### Podman and DevPod Setup
+**Container Engine:**
 
-#### DevPod Setup
+* [Podman](#podman) _(Recommended)_
+* [Docker](#docker)
 
-Open DevPod and go into the "Providers" section. There click on "+ Add", select the docker icon, give it a
-name and click on save. In the same window open advanced settings and under Docker path add the path to 'podman'
-executable (If you are on Windows, it likely is in Program Files\RedHat directory).
+**IDE/Editor:**
 
-#### Podman Setup
+* [Visual Studio Code](#visual-studio-code) _(Fully supported)_
+* [PyCharm](#pycharm)
+* [Zed](#zed)
 
-To initialize Podman the Podman Desktop application has to be opened and "initialize and start" button has to
-be pressed. If the start succeeds, there will be a keyword "RUNNING" in green displayed.
+## Container Engine
 
-#### Initializing the container
+### Podman
 
-Finally, to initialize and open the container everything will be done through DevPod.
+[Podman](https://podman.io/) is an open-source container management tool featuring a command-line interface and an
+optional graphical user interface called `Podman Desktop`.
+Both tools are free for both private _and commercial_ use.
+A key security advantage of Podman over other engines is its _rootless_ architecture, meaning it operates entirely
+without root (admin) privileges.
 
-* Upon openning DevPod go to "Workspaces" and click on "Create Workspace".
-* Under the "Enter Workspace Source", select the "Folder" option and navigate to the destination where you cloned the
-repository to.
-* Under the "Default IDE" select VSCode.
-* Under "Provider" select the provider that you have setup previously (it should have the docker icon)
+* **Installation:** Follow the official guides for [Podman](https://podman.io/docs/installation) _or_
+[Podman Desktop](https://podman-desktop.io/docs/installation).
+* **Initialization:** If using `Podman Desktop`, open the application and click `initialize and start`.
+Once successful, the status will change to a green `RUNNING` indicator.
 
-Finally, click "Create Workspace"
+### Docker
 
-### Docker and DevPod Setup
+[Docker](https://www.docker.com/) consists of the core `Docker` engine and an optional graphical interface,
+`Docker Desktop`.
+Note that professional use of Docker Desktop in larger enterprises _requires a paid subscription._
 
-#### Docker Setup
+* **Installation:** Follow the official guides for [Docker](https://docs.docker.com/engine/install/) Engine _or_
+[Docker Desktop](https://docs.docker.com/get-started/get-docker/).
 
-Before you begin, install Docker Desktop and open it. It will initialize automatically when launched.
+## IDE/Editor
 
-#### DevPod Setup
+### Visual Studio Code
 
-Secondly, open DevPod and go into the "Providers" section. There click on "+ Add", select the docker icon, give it a
-name and click on save. DevPod should find the PATH to the 'docker' executable itself, however if you think that there
-are issues within your setup you can adjust the PATH in the advanced settings by adding the path to the 'docker'
-executable under Docker path.
+[Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers) offers full, native integration with
+development containers.
 
-For the final initialization step, see [Initializing the container](#initializing-the-container).
+* Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+  extension.
+* Open the cloned `power-grid-model` folder in VS Code.
+* Click the green `Remote Indicator` button in the bottom-left corner or open the Command Palette
+  (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+* Select `Dev Containers: Reopen in Container`.
 
-## Possible solutions to issues during setup
+### PyCharm
 
-* If you are facing issues while building the container then try and allocate more memory in Podman. Go to
-Podman -> Settings (Bottom left corner) -> Resources -> Edit.
-* Try and make a fresh clone of the repository and redo the setup on it.
+[PyCharm Professional](https://www.jetbrains.com/help/pycharm/dev-containers-starting-page.html) provides native support
+for development containers.
+Note that the _Professional_ edition is required to have native development container support in PyCharm.
 
-## Support for Apple Container
+* Open the [welcome screen](https://www.jetbrains.com/help/pycharm/welcome-screen.html) of PyCharm.
+* Click `Remote Development`, choose `Dev Containers` and click the `Create Dev Containers` button.
+* Select your local path to the cloned repository and choose your container engine.
 
-We have tested a container setup with Apple's container app. However, currently there is not a simplistic way to open
-that container within VSCode. With future plugin developments we expect to add support for Apple's container.
+### Zed
+
+[Zed](https://zed.dev/docs/dev-containers) supports development containers via its built-in container integration.
+
+* Ensure your container engine (Podman or Docker) is running.
+* Open the cloned `power-grid-model` folder in Zed, a prompt should automatically appear with the option
+  `Open in Container`.
+  Alternatively, use the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) to run `Project: Open Remote` and select
+  `Connect Dev Container`
+* Follow the prompt to initialize the development container environment.

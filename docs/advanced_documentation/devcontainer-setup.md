@@ -43,6 +43,8 @@ For the container engine and the IDE/editor you have several options:
 
 ## Container Engine
 
+You _must_ install _one_ of the container engines listed below to use the development container.
+
 ### Podman
 
 [Podman](https://podman.io/) is an open-source container management tool featuring a command-line interface and an
@@ -67,10 +69,15 @@ Note that professional use of Docker Desktop in larger enterprises _requires a p
 
 ## IDE/Editor
 
+The following IDEs provide development container integration. Other editors that support dev containers may also work
+but are not explicitly listed here.
+
 ### Visual Studio Code
 
 [Visual Studio Code](https://code.visualstudio.com/docs/devcontainers/containers) offers full, native integration with
 development containers.
+
+#### Setup
 
 * Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   extension.
@@ -79,11 +86,39 @@ development containers.
   (`Ctrl+Shift+P` / `Cmd+Shift+P`)
 * Select `Dev Containers: Reopen in Container`.
 
+#### Usage
+
+##### Testing
+
+Visual Studio Code has built-in [support](https://code.visualstudio.com/docs/python/testing) for the Python tests in
+`power-grid-model`.
+You can open the test view via `View / Testing`, which lists all available tests.
+From there, you can run or [debug](https://code.visualstudio.com/docs/python/debugging) individual tests, or execute the
+entire test suite at once.
+
+To debug a test, set a breakpoint and click the debug icon next to the test; the IDE will pause execution at your
+breakpoint.
+You can also launch tests directly from the source code by clicking the test icon in the gutter next to the test
+definition line.
+
+#### Pre-Commit
+
+`power-grid-model` automatically installs [pre-commit](https://pre-commit.com/) inside the development container.
+This framework runs automated checks before each commit to ensure all tests pass, the source code is properly formatted,
+and certain quality standards are met.
+
+#### Linting
+
+The development container utilizes Visual Studio Code extensions to seamlessly integrate code linting for Python, TOML,
+Markdown, JSON, and other formats directly into the IDE.
+
 ### PyCharm
 
 [PyCharm Professional](https://www.jetbrains.com/help/pycharm/dev-containers-starting-page.html) provides native support
 for development containers.
 Note that the _Professional_ edition is required to have native development container support in PyCharm.
+
+#### Setup
 
 * Open the [welcome screen](https://www.jetbrains.com/help/pycharm/welcome-screen.html) of PyCharm.
 * Click `Remote Development`, choose `Dev Containers` and click the `Create Dev Containers` button.
@@ -93,9 +128,11 @@ Note that the _Professional_ edition is required to have native development cont
 
 [Zed](https://zed.dev/docs/dev-containers) supports development containers via its built-in container integration.
 
+#### Setup
+
 * Ensure your container engine (Podman or Docker) is running.
 * Open the cloned `power-grid-model` folder in Zed, a prompt should automatically appear with the option
-  `Open in Container`.
-  Alternatively, use the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) to run `Project: Open Remote` and select
+  `Yes, Open in Container`.
+  Alternatively, use the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) to run `projects: open remote` and select
   `Connect Dev Container`
 * Follow the prompt to initialize the development container environment.

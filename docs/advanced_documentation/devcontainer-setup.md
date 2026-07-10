@@ -13,14 +13,14 @@ side of `power-grid-model`.
 A [development container](https://containers.dev/) is a pre-configured
 [container](https://en.wikipedia.org/wiki/Containerization_(computing)).
 It includes all necessary dependencies for an immediate development start.
-Most modern IDEs support dev containers natively.
+Most modern IDEs support development containers natively.
 This allows you to use your preferred editor and personal extensions directly inside the isolated environment.
 ```
 
 ## Prerequisites
 
-To start developing in the dev container, you must clone the repository, install a container engine, and _(optionally)_
-configure an IDE or editor that supports remote container connections.
+To start developing in the development container, you must clone the repository, install a container engine, and
+_(optionally)_ configure an IDE or editor that supports remote container connections.
 
 First, **clone the repository:**
 
@@ -36,6 +36,8 @@ For the container engine and the IDE/editor you have several options:
 * [Docker](#docker): (larger enterprises require a paid subscription)
 
 **IDE/Editor:**
+
+This is a _non-exhaustive_ list, as other IDEs and editors support development containers too.
 
 * [Visual Studio Code](#visual-studio-code): _Fully supported_
 * [PyCharm](#pycharm)
@@ -68,8 +70,8 @@ Note that professional use of Docker Desktop in larger enterprises _requires a p
 
 ## IDE/Editor
 
-The following IDEs provide development container integration. Other editors that support dev containers may also work
-but are not explicitly listed here.
+The following IDEs provide development container integration.
+Other editors that support development containers may also work but are not explicitly listed here.
 
 ### Visual Studio Code
 

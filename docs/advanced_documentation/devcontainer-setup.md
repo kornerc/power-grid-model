@@ -32,14 +32,13 @@ For the container engine and the IDE/editor you have several options:
 
 **Container Engine:**
 
-* [Podman](#podman) _(Recommended)_
-* [Docker](#docker)
+* [Podman](#podman): _Recommended_ (free for both private and commercial use)
+* [Docker](#docker): (larger enterprises require a paid subscription)
 
 **IDE/Editor:**
 
-* [Visual Studio Code](#visual-studio-code) _(Fully supported)_
+* [Visual Studio Code](#visual-studio-code): _Fully supported_
 * [PyCharm](#pycharm)
-* [Zed](#zed)
 
 ## Container Engine
 
@@ -123,16 +122,3 @@ Note that the _Professional_ edition is required to have native development cont
 * Open the [welcome screen](https://www.jetbrains.com/help/pycharm/welcome-screen.html) of PyCharm.
 * Click `Remote Development`, choose `Dev Containers` and click the `Create Dev Containers` button.
 * Select your local path to the cloned repository and choose your container engine.
-
-### Zed
-
-[Zed](https://zed.dev/docs/dev-containers) supports development containers via its built-in container integration.
-
-#### Setup
-
-* Ensure your container engine (Podman or Docker) is running.
-* Open the cloned `power-grid-model` folder in Zed, a prompt should automatically appear with the option
-  `Yes, Open in Container`.
-  Alternatively, use the command palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) to run `projects: open remote` and select
-  `Connect Dev Container`
-* Follow the prompt to initialize the development container environment.
